@@ -23,3 +23,8 @@ module "iam" {
 module "storage" {
   source = "../../modules/storage"
 }
+
+module "security" {
+  source    = "../../modules/security"
+  bucket_id = module.storage.bucket_name
+}
