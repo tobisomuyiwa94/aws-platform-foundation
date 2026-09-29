@@ -1,0 +1,18 @@
+terraform {
+  required_version = ">= 1.16.0"
+
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+    }
+  }
+}
+
+provider "aws" {
+  region = "us-east-1"
+}
+
+module "vpc" {
+  source   = "../../modules/vpc"
+  vpc_cidr = var.vpc_cidr
+}
