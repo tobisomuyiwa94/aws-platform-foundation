@@ -16,3 +16,10 @@ module "vpc" {
   source   = "../../modules/vpc"
   vpc_cidr = var.vpc_cidr
 }
+module "iam" {
+  source     = "../../modules/iam"
+  bucket_arn = module.storage.bucket_arn
+}
+module "storage" {
+  source = "../../modules/storage"
+}
